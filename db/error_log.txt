@@ -1,0 +1,47 @@
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(modules_BL/album/typeBL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(): Failed opening 'modules_BL/album/typeBL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(classes_BM/albumBM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(): Failed opening 'classes_BM/albumBM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(db/classes_DM/albumDM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(): Failed opening 'db/classes_DM/albumDM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(db/modules_DAL/albumDAL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 19:05:20 UTC] PHP Warning:  include_once(): Failed opening 'db/modules_DAL/albumDAL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 19:09:42 UTC] PHP Parse error:  syntax error, unexpected '[', expecting ')' in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 75
+[06-Sep-2018 19:10:48 UTC] PHP Fatal error:  Cannot re-assign auto-global variable _POST in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 75
+[06-Sep-2018 19:14:09 UTC] PHP Fatal error:  Cannot re-assign auto-global variable _POST in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 75
+[06-Sep-2018 19:14:09 UTC] PHP Fatal error:  Cannot re-assign auto-global variable _POST in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 75
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(modules_BL/album/typeBL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(): Failed opening 'modules_BL/album/typeBL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(classes_BM/albumBM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(): Failed opening 'classes_BM/albumBM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(db/classes_DM/albumDM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(): Failed opening 'db/classes_DM/albumDM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(db/modules_DAL/albumDAL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 19:14:39 UTC] PHP Warning:  include_once(): Failed opening 'db/modules_DAL/albumDAL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(modules_BL/album/typeBL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(): Failed opening 'modules_BL/album/typeBL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 2
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(classes_BM/albumBM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(): Failed opening 'classes_BM/albumBM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 3
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(db/classes_DM/albumDM.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(): Failed opening 'db/classes_DM/albumDM.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 4
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(db/modules_DAL/albumDAL.class.php): failed to open stream: No such file or directory in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 19:15:45 UTC] PHP Warning:  include_once(): Failed opening 'db/modules_DAL/albumDAL.class.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp64\www\Zavrsni_rad\modules_BL\album\albumBL.class.php on line 5
+[06-Sep-2018 22:18:58 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 92
+[06-Sep-2018 22:18:58 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 92
+[06-Sep-2018 22:20:27 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 97
+[06-Sep-2018 22:20:27 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 97
+[06-Sep-2018 22:20:29 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 97
+[06-Sep-2018 22:20:29 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\albums.php on line 97
+[06-Sep-2018 22:36:25 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:37:02 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 105
+[06-Sep-2018 22:37:03 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 105
+[06-Sep-2018 22:37:21 UTC] PHP Parse error:  syntax error, unexpected '$user' (T_VARIABLE), expecting ',' or ')' in C:\wamp64\www\Zavrsni_rad\albums.php on line 92
+[06-Sep-2018 22:38:57 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:38:57 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:39:21 UTC] PHP Parse error:  syntax error, unexpected '$user' (T_VARIABLE), expecting ',' or ')' in C:\wamp64\www\Zavrsni_rad\albums.php on line 92
+[06-Sep-2018 22:50:28 UTC] PHP Warning:  printf(): Too few arguments in C:\wamp64\www\Zavrsni_rad\albums.php on line 94
+[06-Sep-2018 22:50:28 UTC] PHP Warning:  printf(): Too few arguments in C:\wamp64\www\Zavrsni_rad\albums.php on line 94
+[06-Sep-2018 22:52:39 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:52:39 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:54:26 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102
+[06-Sep-2018 22:54:26 UTC] PHP Notice:  Undefined variable: imagePath in C:\wamp64\www\Zavrsni_rad\delete.album.php on line 102

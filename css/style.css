@@ -1,0 +1,335 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+	font-family: 'Metal Mania', cursive, 'Roboto', Arial, sans-serif;
+	font-size: 20px;
+	color: #FFF;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 960px;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+}
+
+#nav {
+	height: 60px;
+	margin: 0;
+	background-color: #547634;
+	padding: 0px 180px;
+}
+
+#nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#nav ul li {
+	float: left;
+}
+
+#nav ul li a {
+	height: 30px;
+	line-height: 30px;
+	padding: 15px;
+	display: block;
+	font-size: 24px;
+}
+
+#nav ul li a:link,
+#nav ul li a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#nav ul li a:hover {
+	background-color: #333;
+}
+
+#nav ul li a:active {
+	background-color: #000;
+	color: #FFF;
+}
+
+#main {
+	overflow: hidden;
+}
+
+img[img*="prisoner_near_wall.jpg"] {
+	width: 960px;
+	height: 720px;
+}
+
+#footer {
+	text-align: center;
+	border-bottom: 1px solid #FFF;
+	border-top: 1px solid #FFF;
+}
+
+#membernames {
+	margin-left: 30px;
+	font-size: 26px;
+}
+
+#membernames div{
+	float: left;
+	margin-right: 30px;
+	padding-left: 10px;
+}
+
+#membernames div:nth-of-type(2) {
+	padding-left: 35px;
+}
+
+#membernames div:nth-of-type(4) {
+	padding-left: 10px;
+	margin-right: 20px;
+}
+
+#membernames div:nth-of-type(5) {
+	margin-right: 0px;
+	padding-left: 10px;
+}
+
+#membernames div:last-of-type {
+	clear: both;
+}
+
+.padding {
+	padding: 0px 20px;
+}
+
+.biographytext {
+	float: left;
+}
+.biographytext h1{
+	width: 500px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+
+img[src*="prisoner_near_entrance_opt"] {
+	float: right;
+	clear: both;
+	margin: 40px 0px 0px 20px;
+}
+
+.discographytext section:first-of-type {
+	text-align: center;
+	border-bottom: 1px solid #FFF;
+}
+
+.discographytext article {
+	overflow: hidden;
+}
+
+.discographytext article img {
+	margin: 20px 30px 20px 0px;
+	float: left;
+}
+
+.discographytext ol {
+	margin-right: 20px;
+	float:left;
+}
+
+.discographytext ol li {
+	width: 300px;
+}
+
+.discographytext hr{
+	margin: 0px;
+}
+
+.contact {
+	text-align: center;
+	background: url("../images/prisoner_on_the_stairs.jpg") center center/cover fixed;
+	height: 720px;
+	width: 920px;
+}
+
+.contact a:link,
+.contact a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.contact a:hover {
+	color: #999;
+}
+
+.contact h1 {
+	font-size: 24px;
+}
+.contact h2 {
+	font-size: 20px;
+}
+
+.contact p {
+	font-size: 16px;
+}
+
+#textcontact {
+	margin: 25% 32%;
+	background: rgba(0,0,0,0.4);
+	width: 300px;
+	padding: 20px;
+}
+
+.merchandize {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+videoWrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#formWrapper {	
+	margin: 0px auto;
+	background: rgba(0,0,0,0.6);
+	border-radius: 1px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 300px;
+	position: absolute;
+}
+
+#registerWrapper {
+	border-top: 1px solid #FFF;
+	margin: 5px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+#registerWrapper label {
+	float: left;
+}
+
+#registerWrapper button {
+	float: right;
+}
+
+input {
+	margin-bottom: 5px;
+}
+
+button {
+	color: #FFF;
+	background-color: #333;
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	font-family: 'Metal Mania', cursive;
+	font-size: 20px;
+}
+
+.btnStyle:link,
+.btnStyle:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.btnStyle:hover {
+	color: #999;
+}
+
+#backtoLgnWrapper {
+	padding: 5px;
+	position: relative;
+}
+
+#validationMsg,
+div[id$="Error"]{
+	color: #ff3333;
+	font-size: 20px;
+}
+
+#formWrapperRegister {	
+	margin: 100px auto;
+	border: 1px solid #FFF;
+	border-radius: 1px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 300px;
+}
+
+.centeredFormWrapper {
+	margin: 100px auto;
+	border-radius: 1px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 300px;
+}
+
+.view {
+	overflow: hidden;
+	padding: 15px;
+}
+
+.buyAlbum {
+	margin: auto 10px;
+	padding: 10px;
+	border: 1px solid #FFF;
+	float: left;
+	text-align: center;
+	width: 300px;
+}
+
+.albumButton:hover {
+	animation:albumButton infinite 3s alternate;
+	color: #FFF;
+}
+
+@keyframes albumButton{
+	0% {
+		transform:scale(1);
+	}
+	50 {
+		transform:scale(1.03);
+	}
+	100% {
+		transform:scale(1.05);
+	}
+}
+
+.buyAlbum img {
+	width: 150px;
+	height: 150px;
+}
+
+.clr {	
+	clear: both;
+}
+
+#bckToOpt {
+	text-align: center;
+	margin: 10px;
+}
+
+#tableAlbums {
+	border-collapse: collapse;
+	text-align: center;
+	margin: 150px auto; 
+}
+ 
+#tableAlbums th,
+#tableAlbums td,
+#tableAlbums tr {
+	border: 1px solid #FFF;
+	padding: 5px;
+}
+
+#tableAlbums tr:nth-child(odd) {
+	background-color: #547634;
+}
