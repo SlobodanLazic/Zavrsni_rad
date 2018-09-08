@@ -9,7 +9,7 @@
 		private $ID_TIP_ALBUMA;
 		private $CENA;
 		
-		public function LoadAlbum($ID_ALBUMA, $NAZIV, $GODINA_IZDAVANJA, $OMOT, $ID_TIP_ALBUMA,$CENA)
+		public function LoadAlbum($ID_ALBUMA = null, $NAZIV, $GODINA_IZDAVANJA, $OMOT, $ID_TIP_ALBUMA,$CENA)
 		{
 			$this->ID_ALBUMA = $ID_ALBUMA;
 			$this->NAZIV = $NAZIV;

@@ -312,7 +312,7 @@ div[id$="Error"]{
 	clear: both;
 }
 
-#bckToOpt {
+#bckToOpt,.bckToTop {
 	text-align: center;
 	margin: 10px;
 }
@@ -333,3 +333,17 @@ div[id$="Error"]{
 #tableAlbums tr:nth-child(odd) {
 	background-color: #547634;
 }
+
+.iframeSize {
+	width: 600px;
+	height: 480px;
+	display: block;
+	margin: 0px auto;
+}
+
+.iframeContainer {
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+}
+

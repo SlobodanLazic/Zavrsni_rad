@@ -55,7 +55,7 @@
 			return $this->price;
 		}
 		
-		public function LoadAlbumFromDB($id_album, $name, $releaseyear, $cover, $id_album_type, $type_name,$price)
+		public function LoadAlbumFromDB($id_album = null, $name, $releaseyear, $cover, $id_album_type, $type_name,$price)
 		{
 			$this->id_album = $id_album;
 			$this->name = $name;

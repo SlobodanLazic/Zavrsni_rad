@@ -63,12 +63,74 @@
 			}						
 		}
 		
-		public function DeleteAlbum()
+		public function BuyAlbum($albumBM,$user)
 		{
-			$post = json_encode($_POST["id_album"]);
-				echo "<pre>";
-				echo $post;
-				echo "</pre>";
+			
+			$adminEmail = "admin@admin.com";
+			$subjectofEmail = "Album order";
+			$id_album = $albumBM->Getid_album();
+			$nameofAlbum = $albumBM->Getname();
+			$yearofRelease = $albumBM->Getreleaseyear();
+			$type_name = $albumBM->Gettype_name();
+			$price = $albumBM->Getprice();
+			$emailMsg = sprintf("
+								<!DOCTYPE html>
+								<html>
+									<head>
+									<meta charset='UTF-8'>
+										<title>Album order</title>
+									<link href='https://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet'>
+									<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css' integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU' crossorigin='anonymous'>
+									<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+									<style>
+									body {
+										margin: 0;
+										padding: 0;
+										background: #000;
+										font-family: 'Metal Mania', cursive, 'Roboto', Arial, sans-serif;
+										font-size: 20px;
+										color: #FFF;
+									}
+									#wrapper {
+										border:1px solid #FFF;
+										width:960px;
+									}
+									</style>
+									</head>
+									<body>
+										<div id='wrapper'>
+											<p>User with Username: %s and Email: %s wants to buy an album</p>
+											<p>Identification number of album: %s</p>
+											<p>Name: %s</p>
+											<p>Year: %s</p>
+											<p>Type: %s</p>
+											<p>Price: %s &euro;</p>
+											<p>Contact him via email as soon as possible!!!</p>
+										</div>
+									</body>
+								</html>",
+								$user->GetUSERNAME(), $user->GetEMAIL(),$id_album, $nameofAlbum, $yearofRelease, $type_name, $price);
+			@mail($adminEmail, $subjectofEmail, $emailMsg);
+		}
+		
+		public function DeleteAlbum($albumBM)
+		{	
+		
+			$albumDM = $this->MapAlbumBM2DM($albumBM);
+			$albumDAL = new AlbumDAL();
+			$errorMsg = $albumDAL->DeleteAlbumFromDB($albumDM);
+			
+			if ($errorLogMsg == "")
+			{
+				$imageFolderPath = sprintf("images/albums/%d", $albumBM->Getid_album());
+				$imageFilePath = $imageFolderPath . "/" . $albumBM->Getcover();
+				unlink($imageFilePath);
+				rmdir($imageFolderPath);
+				
+				header("Location: delete.album.php");
+				exit;
+			}
+			
 		}
 		
 		public function GetAlbums()
@@ -117,7 +179,7 @@
 		private function MapAlbumBM2DM($albumBM)
 		{
 			$albumDM = new AlbumDM();
-			$albumDM->LoadAlbum(null,
+			$albumDM->LoadAlbum(	$albumBM->Getid_album(),
 									$albumBM->Getname(), 
 									$albumBM->Getreleaseyear(), 
 									$albumBM->Getcover(),									

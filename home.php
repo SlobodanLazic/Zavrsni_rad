@@ -40,6 +40,11 @@
 					
 					$user = unserialize($_SESSION["user"]);
 					
+					$videos = sprintf("
+					<div>
+						<button type='submit'><a href='%s' class='btnStyle'>View Our Videos</a></button>
+					</div>", "videos.php"
+					);
 					$listAlbums = sprintf("
 					<div>
 						<button type='submit'><a href='%s' class='btnStyle'>View All Albums</a></button>
@@ -57,11 +62,13 @@
 					</div>", "delete.album.php"
 					);
 					printf(
-					"
+					"	
+						%s
 						%s
 						%s
 						%s
 					",
+						$user->GetID_ROLA() == USER_ROLE_KORISNIK ? $videos : "",
 						$listAlbums,
 						$user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR ? $insertAlbum : "",
 						$user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR ? $deleteAlbum : ""

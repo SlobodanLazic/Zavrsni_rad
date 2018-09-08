@@ -11,13 +11,12 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>Delete Album</title>
+		<title>View All Albums</title>
 	<link href="https://fonts.googleapis.com/css?family=Metal+Mania" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/hide.js"></script>
-	<script src="js/ajax_delete.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -37,7 +36,7 @@
 				</ul>
 			</nav> <!-- end of #navigation -->
 			
-			<main class="delete">
+			<main id="main" class="view">
 				<section id="bckToOpt">
 					<div>
 						<button type="submit" name="bckToOpt"><a href="home.php" class="btnStyle">Back to Options</a></button>
@@ -49,66 +48,47 @@
 				$loginBL->CheckUserSessionData();
 				$user = unserialize($_SESSION["user"]);
 				
-				$typeBL = new TypeBL();
-				$types = $typeBL->GetTypes();
+				$feed = "https://www.youtube.com/feeds/videos.xml?playlist_id=PLDuBTz2Byh9MaprT9RPIzkGWsUJCYrMKe";
+				$xml = simplexml_load_file($feed);
+				$entries = $xml->entry;
 				
-				$albumBL = new AlbumBL();
-				$albums = $albumBL->GetAlbums();
-				
-				
-				
-				if($albums != NULL)
-				{	
-				
-					print "<table id='tableAlbums'>";
-					echo  "<tr>
-								<th>Name</th>
-								<th>Year</th>
-								<th>Type</th>
-								<th>Price &euro;</th>
-								<th>Identification number</th>
-								<th>Delete album</th>
-						   </tr>";   
-					foreach ($albums as $album)
-					{
-						printf("
-								<tr>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>
-										<form method='POST' action=''>
-											<div>
-												<input type='text' name='id_album' class='hidden id_album' id='%s' value='%s'>
-												<button class='btnStyle albumButton delete' id='delete%s' name='delete'>Delete <i class='fas fa-trash-alt'></i></i></button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								", 
-								$album->Getname(),$album->Getreleaseyear(),
-								$album->Gettype_name(),$album->Getprice(),
-								$album->Getid_album(),
-								$album->Getid_album(),								
-								$album->Getid_album(),								
-								$album->Getid_album()								
-								);
-						if(isset($_POST["delete"]) && $user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR)
-						{	
-							$id_album = $_POST["id_album"];
-							if($id_album === $album->Getid_album())
-							{	
-								$albumBL = new AlbumBL();
-								$albumBL->DeleteAlbum($album);
-							}
-						}
-					}
-					print "<table>";
+				foreach($entries as $entry)
+				{
+					$published = $entry->published;
+					$shortDate = date("d.m.Y", strtotime($published));
+		
+					$title = $entry->title;
+					$id = $entry->id;
+					$id = str_replace("yt:video:", "", $id);
+					$author = $entry->author->name;
+					$uri = $entry->author->uri;
+					
+					$content = sprintf("<article class='iframeContainer'>
+											<h1><a class='btnStyle' href='%s'>%s</a></h1>
+											<iframe src='%s%s' class='iframeSize' allowfullscreen>
+											</iframe>
+											<br>
+											<small>Published: %s &nbsp; By: %s</small>
+										</article>
+										<hr>
+										",
+											$uri,
+											$title,
+											"http://www.youtube.com/embed/",
+											$id,
+											$shortDate,
+											$author
+										);
+					echo $content;
 				}
-								
+				
 			?>
+			<section class="bckToTop">
+				<div>
+					<button type="submit" name="bckToTop"><a href="#bckToOpt" class="btnStyle">Back to Top</a></button>
+				</div>
+			</section>
+			
 			</main> <!-- end of #main -->
 			
 			<footer id="footer">

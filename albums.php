@@ -59,10 +59,6 @@
 									<button  class='btnStyle albumButton buy' name='buy'>Buy <i class='fas fa-shopping-cart'></i></button>
 								</div>
 								";
-				if(ISSET($_POST["buy"]))
-				{
-					
-				}
 							
 				if($albums != NULL)
 				{
@@ -80,8 +76,8 @@
 										<p>Price: %s &euro;</p>
 											%s
 										<form method='POST' action=''>
-											<div class='hidden'>
-												<input type='text' name='id_album' id='%s' value='%s'>
+											<div >
+												<input type='text' class='hidden' name='id_album' id='%s' value='%s'>
 											</div>
 											%s
 										</form>
@@ -101,7 +97,23 @@
 								$album->Getid_album(), 
 								$user->GetID_ROLA() == USER_ROLE_KORISNIK ? $userBuybutton : ""
 								);
+						
+							if(isset($_POST["buy"]) && $user->GetID_ROLA() == USER_ROLE_KORISNIK)
+							{	
+								$id_album = $_POST["id_album"];
+								$username = $user->GetUSERNAME();
+								$usernameEmail = $user->GetEMAIL();
+								
+								if($id_album === $album->Getid_album())
+								{	
+								
+									$albumBL = new AlbumBL();
+									$albumBL->BuyAlbum($album,$user);
+								}
+							}
 					}
+					
+					
 				}
 								
 			?>

@@ -4,7 +4,7 @@
 	{
 		private $ID_KORISNIK;
 		private $USERNAME;
-		public $PASSWORD;
+		private $PASSWORD;
 		private $EMAIL; 
 		private $POSLEDNJE_LOGOVANJE;
 		private $ID_ROLA;

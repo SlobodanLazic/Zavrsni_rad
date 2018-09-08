@@ -32,6 +32,42 @@
 			return isset($types) ? $types : null;
 		}
 		
+		public function DeleteAlbumFromDB($albumDM)
+		{
+			$query = "	
+					DELETE FROM ALBUM
+					WHERE ID_ALBUMA = ?
+					";
+				
+			$id_album = $albumDM->GetID_ALBUMA();
+			$params[] = "i";
+			$params[] = &$id_album;
+			
+			$userResult = DBConnection::DeletingById($query, $params);
+			
+			switch($userResult)
+			{
+				case -1:
+					$errorLogMsg = "The query has returned an error." . PHP_EOL;
+					break;
+				case 0:
+					$errorLogMsg = "No records where updated for an UPDATE/DELETE statement, 
+					no rows matched the WHERE clause in the query or that no query has yet been executed."  . PHP_EOL;
+					break;
+				case null:
+					$errorLogMsg = "Invalid argument was supplied to the function"  . PHP_EOL;
+					break;
+				default:
+					$errorLogMsg = "";
+			}
+			if ($errorLogMsg != "")
+			{
+				error_log($errorLogMsg, 3,"db/error_log.txt");
+			}
+			
+			return isset($errorLogMsg) ? $errorLogMsg : "";
+		}
+		
 		public function InsertNewAlbum($albumDM)
 		{
 			$query = "	
