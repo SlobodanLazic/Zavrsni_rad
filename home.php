@@ -21,7 +21,7 @@
 				<a href="index.html">
 					<img src="images/prisoner_logo.jpg" alt="prisoner_logo.jpg">
 				</a>	
-			</header> <!-- end of #header -->
+			</header>
 			
 			<nav id="nav">
 				<ul>
@@ -31,7 +31,7 @@
 					<li><a href="merchandize.php">Merchandize</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
-			</nav> <!-- end of #navigation -->
+			</nav>
 			
 			<main id="main" class="centeredFormWrapper">
 				<?php
@@ -77,11 +77,11 @@
 				<div>
 					<button type="submit"><a href="logout.php" class="btnStyle">Log Out</a></button>
 				</div>
-			</main> <!-- end of #main -->
+			</main>
 			
 			<footer id="footer">
 				<p>Offical Prisoner WebSite &copy; 2018</p>
 			</footer>
-		</div> <!-- end of #wrapper -->
+		</div>
 	</body>
 </html>

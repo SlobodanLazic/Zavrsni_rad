@@ -17,7 +17,7 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/hide.js"></script>
-	<script src="js/ajax_delete.js"></script>
+	<script src="js/serverMsg.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -25,7 +25,7 @@
 				<a href="index.html">
 					<img src="images/prisoner_logo.jpg" alt="prisoner_logo.jpg">
 				</a>	
-			</header> <!-- end of #header -->
+			</header>
 			
 			<nav id="nav">
 				<ul>
@@ -35,7 +35,7 @@
 					<li><a href="merchandize.php">Merchandize</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
-			</nav> <!-- end of #navigation -->
+			</nav>
 			
 			<main class="delete">
 				<section id="bckToOpt">
@@ -43,77 +43,98 @@
 						<button type="submit" name="bckToOpt"><a href="home.php" class="btnStyle">Back to Options</a></button>
 					</div>
 				</section>
-			
-			<?php
-				$loginBL = new LoginBL();
-				$loginBL->CheckUserSessionData();
-				$user = unserialize($_SESSION["user"]);
-				
-				$typeBL = new TypeBL();
-				$types = $typeBL->GetTypes();
-				
-				$albumBL = new AlbumBL();
-				$albums = $albumBL->GetAlbums();
-				
-				
-				
-				if($albums != NULL)
-				{	
-				
-					print "<table id='tableAlbums'>";
-					echo  "<tr>
-								<th>Name</th>
-								<th>Year</th>
-								<th>Type</th>
-								<th>Price &euro;</th>
-								<th>Identification number</th>
-								<th>Delete album</th>
-						   </tr>";   
-					foreach ($albums as $album)
-					{
-						printf("
-								<tr>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>
-										<form method='POST' action=''>
-											<div>
-												<input type='text' name='id_album' class='hidden id_album' id='%s' value='%s'>
-												<button class='btnStyle albumButton delete' id='delete%s' name='delete'>Delete <i class='fas fa-trash-alt'></i></i></button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								", 
-								$album->Getname(),$album->Getreleaseyear(),
-								$album->Gettype_name(),$album->Getprice(),
-								$album->Getid_album(),
-								$album->Getid_album(),								
-								$album->Getid_album(),								
-								$album->Getid_album()								
-								);
-						if(isset($_POST["delete"]) && $user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR)
-						{	
-							$id_album = $_POST["id_album"];
-							if($id_album === $album->Getid_album())
-							{	
-								$albumBL = new AlbumBL();
-								$albumBL->DeleteAlbum($album);
-							}
+				<table id='tableAlbums'>
+					<tr>
+						<th>Name</th>
+						<th>Year</th>
+						<th>Type</th>
+						<th>Price &euro;</th>
+						<th>Identification number</th>
+						<th>Delete album</th>
+					</tr>
+					<?php
+						$loginBL = new LoginBL();
+						$loginBL->CheckUserSessionData();
+						$user = unserialize($_SESSION["user"]);
+						
+						if($user->GetID_ROLA() != USER_ROLE_ADMINISTRATOR)
+						{
+							header("Location:home.php");
+							exit;
 						}
-					}
-					print "<table>";
-				}
+						
+						$typeBL = new TypeBL();
+						$types = $typeBL->GetTypes();
+						
+						$albumBL = new AlbumBL();
+						$albums = $albumBL->GetAlbums();
+						
+						
+						
+						if($albums != NULL)
+						{	  
+							foreach ($albums as $album)
+							{	
+								if(isset($_POST["delete"]) && $user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR)
+								{	
+									$id_album = $_POST["id_album"];
+									if($id_album === $album->Getid_album())
+									{	
+										$albumBL = new AlbumBL();
+										$validationMsg = $albumBL->DeleteAlbum($album);
+									}
+								}
 								
-			?>
-			</main> <!-- end of #main -->
+								
+								$explodedTypes = explode(",",$album->Gettype_name());
+								printf("
+									<tr>
+										<td>%s</td>
+										<td>%s</td>
+										<td><span title='%s'>%s</span></td>
+										<td>%s</td>
+										<td>%s</td>
+										<td>
+											<form method='POST' action=''>
+												<div>
+													<input type='text' name='id_album' class='hidden id_album' id='%s' value='%s'>
+													<button class='btnStyle albumButton delete' id='delete%s' name='delete'>Delete <i class='fas fa-trash-alt'></i></i></button>
+												</div>
+											</form>
+										</td>
+									</tr>
+									", 
+									$album->Getname(),$album->Getreleaseyear(),
+									$explodedTypes[1],
+									$explodedTypes[0],$album->Getprice(),
+									$album->Getid_album(),
+									$album->Getid_album(),								
+									$album->Getid_album(),								
+									$album->Getid_album()								
+									);
+							}
+						}				
+					
+					print( 
+					"</table>");
+					echo "<div id='validationMsg'>";
+					
+					if (isset($validationMsg))
+					{
+					  echo "<p class='sucessful'>$validationMsg</p>";
+					}
+					else if(!isset($validationMsg))
+					{
+						echo "";
+					}
+					print "</div>";	
+					
+					?>
+			</main>
 			
 			<footer id="footer">
 				<p>Offical Prisoner WebSite &copy; 2018</p>
 			</footer>
-		</div> <!-- end of #wrapper -->
+		</div>
 	</body>
 </html>

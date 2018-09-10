@@ -1,1 +1,2 @@
+ErrorDocument 404 /Zavrsni_rad/wrong.page.html
 php_value error_log C:\wamp64\www\Zavrsni_rad\db\error_log.txt

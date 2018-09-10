@@ -23,7 +23,8 @@
 			$id_album_type = stripslashes($id_album_type);
 			$price = stripslashes($price);
 			
-			if($albmName != "" && $rlsYear != "" && $id_album_type != "" && $_FILES["albmCover"]["error"] == 0 && $price != 0)
+			if($albmName != "" && $rlsYear != "" && $id_album_type != "" && $_FILES["albmCover"]["error"] == 0 && $price != 0 
+			&& is_numeric($rlsYear) && strlen($rlsYear) == 4)
 			{
 				$allowedExts = array("jpg", "jpeg", "gif", "png");
 				$explodedArray = explode(".",$_FILES["albmCover"]["name"]);
@@ -46,9 +47,10 @@
 					
 					$id = $albumDAL->InsertNewAlbum($albumDM);
 					
+					$validationMsg = "";
 					if($id == -1)
 					{
-						printf("An error has occured!!!");
+						$validationMsg = "An error has occured!!!";
 					}
 					else
 					{	
@@ -57,8 +59,11 @@
 						
 						$filePath = sprintf("%s/%s", $imageFolderPath, $_FILES["albmCover"]["name"]);
 						move_uploaded_file($_FILES["albmCover"]["tmp_name"],$filePath);
+						$validationMsg = "You have sucessfully added album!!!";
 					}
 					
+					
+					return $validationMsg;
 				}	
 			}						
 		}
@@ -110,7 +115,8 @@
 									</body>
 								</html>",
 								$user->GetUSERNAME(), $user->GetEMAIL(),$id_album, $nameofAlbum, $yearofRelease, $type_name, $price);
-			@mail($adminEmail, $subjectofEmail, $emailMsg);
+			$emailResponse = @mail($adminEmail, $subjectofEmail, $emailMsg);
+			return isset($emailResponse) ? $emailResponse : null;
 		}
 		
 		public function DeleteAlbum($albumBM)
@@ -120,7 +126,7 @@
 			$albumDAL = new AlbumDAL();
 			$errorMsg = $albumDAL->DeleteAlbumFromDB($albumDM);
 			
-			if ($errorLogMsg == "")
+			if ($errorMsg == "")
 			{
 				$imageFolderPath = sprintf("images/albums/%d", $albumBM->Getid_album());
 				$imageFilePath = $imageFolderPath . "/" . $albumBM->Getcover();
@@ -128,8 +134,18 @@
 				rmdir($imageFolderPath);
 				
 				header("Location: delete.album.php");
-				exit;
+				$validationMsg = "You have sucessfully deleted album!!!";
 			}
+			else if ($errorMsg != "")
+			{
+				$validationMsg = "An error has occured!";
+			}
+			else
+			{
+				$validationMsg = "";
+			}
+			
+			return $validationMsg;
 			
 		}
 		
@@ -154,7 +170,7 @@
 				
 				foreach ($types as $type)
 				{
-					$typestoLoad[$type->GetId_album_type()] = $type->GetName();
+					$typestoLoad[$type->GetId_album_type()] = $type->GetName() . "," . $type->GetDescription();
 				}
 				
 				foreach($albumsDM as $albumDM)
@@ -188,5 +204,6 @@
 								);
 				return $albumDM;
 		}
+
 	}
 ?>

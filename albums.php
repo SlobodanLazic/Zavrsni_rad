@@ -24,7 +24,7 @@
 				<a href="index.html">
 					<img src="images/prisoner_logo.jpg" alt="prisoner_logo.jpg">
 				</a>	
-			</header> <!-- end of #header -->
+			</header>
 			
 			<nav id="nav">
 				<ul>
@@ -34,9 +34,9 @@
 					<li><a href="merchandize.php">Merchandize</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
-			</nav> <!-- end of #navigation -->
+			</nav>
 			
-			<main id="main" class="view">
+			<main id="main" class="view" ng->
 				<section id="bckToOpt">
 					<div>
 						<button type="submit" name="bckToOpt"><a href="home.php" class="btnStyle">Back to Options</a></button>
@@ -66,13 +66,15 @@
 					{	
 						$id_Album = "<p>Identification number:" .  $album->Getid_album()  . "</p>";
 						$imagePath = sprintf("images/albums/%d/%s", $album->Getid_album(),$album->Getcover());
+						$explodedTypes = explode(",",$album->Gettype_name());
+						
 						printf("
 								<div class='buyAlbum'>
 									<div>
 										<img src='%s' alt='%s'>
 										<p>Name: %s</p>
 										<p>Year: %s</p>
-										<p>Type: %s</p>
+										<p title='%s'>Type: %s</p>
 										<p>Price: %s &euro;</p>
 											%s
 										<form method='POST' action=''>
@@ -90,7 +92,8 @@
 								$album->Getcover(),
 								$album->Getname(),
 								$album->Getreleaseyear(),
-								$album->Gettype_name(),
+								$explodedTypes[1],
+								$explodedTypes[0],
 								$album->Getprice(),
 								$user->GetID_ROLA() == USER_ROLE_ADMINISTRATOR ? $id_Album : "", 
 								$album->Getid_album(), 
@@ -112,18 +115,14 @@
 								}
 							}
 					}
-					
-					
 				}
 								
 			?>
-				
-				
-			</main> <!-- end of #main -->
+			</main>
 			
 			<footer id="footer">
 				<p>Offical Prisoner WebSite &copy; 2018</p>
 			</footer>
-		</div> <!-- end of #wrapper -->
+		</div>
 	</body>
 </html>

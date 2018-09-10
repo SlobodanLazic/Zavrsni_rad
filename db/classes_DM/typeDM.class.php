@@ -1,6 +1,6 @@
 <?php
 	
-	class TypeDM //Type of Album(full-album,demo,EP,single,split,compilation)
+	class TypeDM 
 	{
 		private $ID_TIP_ALBUMA;
 		private $NAZIV;

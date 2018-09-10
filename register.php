@@ -33,8 +33,7 @@
 				<a href="index.html">
 					<img src="images/prisoner_logo.jpg" alt="prisoner_logo.jpg">
 				</a>	
-			</header> <!-- end of #header -->
-			
+			</header> 
 			<nav id="nav">
 				<ul>
 					<li><a href="index.html">Prison</a></li>
@@ -43,7 +42,7 @@
 					<li><a href="merchandize.php">Merchandize</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
-			</nav> <!-- end of #navigation -->
+			</nav>
 			
 			<main id="main" class="register">
 				<div id="formWrapperRegister">
@@ -93,13 +92,13 @@
 					<div id="validationMsg">
 					
 					</div>
-				</div> <!-- end of #formWrapper -->
+				</div>
 				
-			</main> <!-- end of #main -->
+			</main>
 			
 			<footer id="footer">
 				<p>Offical Prisoner WebSite &copy; 2018</p>
 			</footer>
-		</div> <!-- end of #wrapper -->
+		</div>
 	</body>
 </html>

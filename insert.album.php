@@ -10,12 +10,10 @@
 	$loginBL = new LoginBL();
 	$loginBL->CheckUserSessionData();
 	
-	if(ISSET($_POST["albmSbmt"], $_POST["albmName"], $_POST["rlsYear"], $_FILES["albmCover"], $_POST["id_album_type"],$_POST["price"]))
+	if($user->GetID_ROLA() != USER_ROLE_ADMINISTRATOR)
 	{
-		
-		$albumBL = new AlbumBL();
-		$albumBL->InsertNewAlbum();
-		
+		header("Location:home.php");
+		exit;
 	}
 	
 	$typeBL = new TypeBL();
@@ -31,6 +29,7 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/validation.js"></script>
+	<script src="js/serverMsg.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -38,8 +37,7 @@
 				<a href="index.html">
 					<img src="images/prisoner_logo.jpg" alt="prisoner_logo.jpg">
 				</a>	
-			</header> <!-- end of #header -->
-			
+			</header> 
 			<nav id="nav">
 				<ul>
 					<li><a href="index.html">Prison</a></li>
@@ -48,9 +46,9 @@
 					<li><a href="merchandize.php">Merchandize</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
-			</nav> <!-- end of #navigation -->
+			</nav> 
 			
-			<main id="main" class="">
+			<main id="main">
 				<div class="centeredFormWrapper">
 					<h2>Add New Album</h2>
 					<form action="#" method="POST" name="addAlbum" id="addAlbum" enctype="multipart/form-data">
@@ -127,15 +125,23 @@
 						</div>
 					</form>
 					<div id="validationMsg">
-					
+						<?php
+							if(ISSET($_POST["albmSbmt"], $_POST["albmName"], $_POST["rlsYear"], $_FILES["albmCover"], $_POST["id_album_type"],$_POST["price"]))
+							{
+								
+								$albumBL = new AlbumBL();
+								$validationMsg = $albumBL->InsertNewAlbum();
+								
+								echo "<p class='sucessful'>$validationMsg</p>";
+							}
+						?>
 					</div>
-				</div> <!-- end of #formWrapper -->
-				
-			</main> <!-- end of #main -->
+				</div>
+			</main>
 			
 			<footer id="footer">
 				<p>Offical Prisoner WebSite &copy; 2018</p>
 			</footer>
-		</div> <!-- end of #wrapper -->
+		</div>
 	</body>
 </html>
