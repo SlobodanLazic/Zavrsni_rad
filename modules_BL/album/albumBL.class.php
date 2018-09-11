@@ -36,7 +36,7 @@
 					in_array($extension, $allowedExts) 
 					&& in_array($imageType, $allowedTypes) 
 					&& $_FILES["albmCover"]["size"] < 2 * 1024 * 1024
-					)//2MB//
+					)
 				{
 					$albumBM = new AlbumBM();
 					$albumBM->SetNewAlbum($albmName, $rlsYear, $_FILES["albmCover"]["name"], $id_album_type,$price);
@@ -116,7 +116,6 @@
 								</html>",
 								$user->GetUSERNAME(), $user->GetEMAIL(),$id_album, $nameofAlbum, $yearofRelease, $type_name, $price);
 			$emailResponse = @mail($adminEmail, $subjectofEmail, $emailMsg);
-			return isset($emailResponse) ? $emailResponse : null;
 		}
 		
 		public function DeleteAlbum($albumBM)

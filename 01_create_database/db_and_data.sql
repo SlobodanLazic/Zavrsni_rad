@@ -30,10 +30,11 @@ CREATE TABLE `album` (
   `GODINA_IZDAVANJA` varchar(4) NOT NULL,
   `OMOT` varchar(255) NOT NULL,
   `ID_TIP_ALBUMA` int(11) NOT NULL,
+  `CENA` smallint(6) NOT NULL,
   PRIMARY KEY (`ID_ALBUMA`),
   KEY `fk_ALBUM_TIP_ALBUMA1_idx` (`ID_TIP_ALBUMA`),
   CONSTRAINT `fk_ALBUM_TIP_ALBUMA1` FOREIGN KEY (`ID_TIP_ALBUMA`) REFERENCES `tip_albuma` (`ID_TIP_ALBUMA`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +43,7 @@ CREATE TABLE `album` (
 
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
-INSERT INTO `album` VALUES (149,'The Upcoming Devastation','2014','the_upcoming_devastation.jpg',3),(150,'See the Scars','2015','see_the_scars.jpg',1);
+INSERT INTO `album` VALUES (5,'The Upcoming Devastation','2014','the_upcoming_devastation.jpg',3,3),(6,'See the Scars','2015','see_the_scars.jpg',1,7);
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +67,7 @@ CREATE TABLE `korisnik` (
   KEY `fk_KORISNIK_KORISNIK_STATUS1_idx` (`ID_STATUS`),
   CONSTRAINT `fk_KORISNIK_KORISNIK_ROLA` FOREIGN KEY (`ID_ROLA`) REFERENCES `korisnik_rola` (`ID_ROLA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_KORISNIK_KORISNIK_STATUS1` FOREIGN KEY (`ID_STATUS`) REFERENCES `korisnik_status` (`ID_STATUS`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +76,7 @@ CREATE TABLE `korisnik` (
 
 LOCK TABLES `korisnik` WRITE;
 /*!40000 ALTER TABLE `korisnik` DISABLE KEYS */;
-INSERT INTO `korisnik` VALUES (1,'admin','admin','admin@admin.com','2018-09-04 03:17:01',1,1);
+INSERT INTO `korisnik` VALUES (1,'korisnik1','$2y$10$6BFyn7Rwxavg8NrpmqbU3en.gEYCl06kQwTr3m0ZX/VsIX/ay1xE2','korisnik1@korisnik1.com','2018-09-10 02:48:32',2,1),(2,'admin','$2y$10$UF.YRaD6TxDkY0x3daq19uQd9cXUd2yR9fg8t5.LwYSuHBH0ZwVHC','admin@admin.com','2018-09-10 10:08:14',1,1),(3,'korisnik2','$2y$10$p2dctbjknF/liXj/Jtgba.CLiNaNg7n3cTRVD7Ub19hA.5BaDowIu','korisnik2@korisnik2.com','2018-09-10 10:17:43',2,1);
 /*!40000 ALTER TABLE `korisnik` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-04 16:49:29
+-- Dump completed on 2018-09-10 10:49:48

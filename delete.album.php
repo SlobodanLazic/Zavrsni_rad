@@ -69,8 +69,6 @@
 						$albumBL = new AlbumBL();
 						$albums = $albumBL->GetAlbums();
 						
-						
-						
 						if($albums != NULL)
 						{	  
 							foreach ($albums as $album)

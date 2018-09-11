@@ -1,4 +1,6 @@
 <?php
+	include_once ("modules_BL/user/loginBL.class.php");
+	
 	class RegisterBL extends LoginBL
 	{
 		public function RegisterUser()

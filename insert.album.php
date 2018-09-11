@@ -9,6 +9,7 @@
 	
 	$loginBL = new LoginBL();
 	$loginBL->CheckUserSessionData();
+	$user = unserialize($_SESSION["user"]);
 	
 	if($user->GetID_ROLA() != USER_ROLE_ADMINISTRATOR)
 	{

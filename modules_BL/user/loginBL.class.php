@@ -1,4 +1,9 @@
 <?php
+	if (session_id() === "")
+	{
+		session_start();
+	}
+	
 	include_once "db/modules_DAL/userDAL.class.php";
 	
 	class LoginBL
